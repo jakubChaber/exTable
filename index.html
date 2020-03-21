@@ -1,188 +1,193 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
 
-    <link rel="stylesheet" href="exTable.css"> <!--  To use, You have to add stylesheet    -->
+  <link rel="stylesheet" href="exTable.css"> <!--  To use, You have to add stylesheet    -->
 </head>
+
 <body>
-    <div style="width:60%;">
+  <div style="width:60%;">
 
-        <table id="exTable" data-fTitle='titleOfTheCSV' class="table">  <!-- 'exTable' as a id of table element with 'data-fTitler' attribute  -->
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">7</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">8</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">9</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">10</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">11</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">12</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">13</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">14</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">15</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">16</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">17</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">18</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">19</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">20</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">21</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">22</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">23</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">24</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">25</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">26</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <table id="exTable" data-fTitle='titleOfTheCSV' class="table">
+      <!-- 'exTable' as a id of table element with 'data-fTitler' attribute  -->
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">6</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">7</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">8</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">9</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">10</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">11</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">12</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">13</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">14</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">15</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">16</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">17</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">18</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">19</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">20</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">21</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">22</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">23</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">24</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">25</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        <tr>
+          <th scope="row">26</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-<script src="exTable.js"></script>  <!-- And scripts at the bottom of the <body> element  -->
+  <script src="exTable.js"></script> <!-- And scripts at the bottom of the <body> element  -->
 </body>
+
 </html>
