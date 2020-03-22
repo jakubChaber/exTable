@@ -29,8 +29,9 @@ td {
 }
 
 .exTr_ac {
-    background-color: rgba(32, 114, 69, .6);
+    background-color: #79aa8f;
     color: #eee;
     position: sticky;
+    transition: .1s ease-in;
     /* top: 0; */
 }

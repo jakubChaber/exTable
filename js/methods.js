@@ -1,64 +1,48 @@
-//variables
-const table = document.querySelectorAll('#exTable');
-const exTr = document.querySelectorAll('#exTable  tr');
-var TMPmin = 0;
-table[0].style.position = "relative";
-
-//methods
-clearTr = () => {
-    for (const key in exTr) {
-        if (exTr.hasOwnProperty(key)) {
-            const element = exTr[key];
-            element.classList.remove('exTr_ac');
-            table.focus;
-        }
-    }
-}
-getHeight = () => {
-    return document.querySelector('TR').offsetHeight;
-}
-getActive = () => {
-    console.log('l21', document.querySelector('.exTr_ac'));
+import {
+    table,
+    exTr,
+    tableOfActiveObjs
+} from "./vars.js";
+var getActive = () => {
     return document.querySelectorAll('.exTr_ac').length;
 }
-color = (arg, key) => {
 
-    arg[key].classList.add('exTr_ac');
+var compare = (a, b) => {
+    // Use toUpperCase() to ignore character casing
+    const rowIndexA = a.rowIndex;
+    const rowIndexB = b.rowIndex;
 
-    arg[key].style.top = `${ (getActive()*getHeight())-getHeight() }px`;
-}
-//add point 'n click
-for (const key in exTr) {
-    if (exTr.hasOwnProperty(key)) {
-        const element = exTr[key];
-        exTr[key].addEventListener('click', ev => {
-            if (!ev.ctrlKey) {
-                clearTr();
-                color(exTr, key);
-
-            } else if (ev.shiftKey) {
-                let i = TMPmin;
-                let TMPcurrent = key;
-                while (1) {
-
-                    color(exTr, i);
-                    if (i > TMPcurrent) {
-                        i--;
-                    } else if (i < TMPcurrent) {
-                        i++;
-                    } else {
-                        break;
-                    }
-                }
-            } else {
-                color(exTr, key);
-            }
-            TMPmin = key;
-        })
+    let comparison = 0;
+    if (rowIndexA > rowIndexB) {
+        comparison = 1;
+    } else if (rowIndexA < rowIndexB) {
+        comparison = -1;
     }
+    return comparison;
 }
-// generating CP and click-it function
-appendCP = () => {
+
+var color = (arg, key) => {
+
+    arg.obj.classList.add('exTr_ac');
+    tableOfActiveObjs.push(arg);
+
+    tableOfActiveObjs.sort(compare);
+    // arg.obj.style.top = `${ (getActive()*getHeight())-getHeight() }px`;
+    setPosition();
+}
+var setPosition = () => {
+    for (const key in tableOfActiveObjs) {
+        if (tableOfActiveObjs.hasOwnProperty(key)) {
+            const element = tableOfActiveObjs[key];
+            // console.log('element.height l54', element.height);
+            // console.log('parseInt(key+1) l54', parseInt(key) + 1);
+            element.obj.style.top = `${((parseInt(key)+1)*element.height) - element.height }px`;
+            // console.log('element.obj.style.top', element.obj.style.top);
+        }
+    }
+
+}
+var appendCP = () => {
     var table = document.getElementById('exTable');
     var div = document.createElement("div");
     div.style.position = "absolute";
@@ -93,21 +77,15 @@ appendCP = () => {
                             arrayToSave[key1].push(`"` + element + `"`);
 
                         }
-
-
                     }
-
-
-
                 }
             }
-
             //adding filename (from attribute of the table)
             var filename = table.getAttribute('data-fTitle') + '.csv';
 
             var csvContent = '';
             arrayToSave.forEach(function (infoArray, index) {
-                dataString = infoArray.join(';');
+                let dataString = infoArray.join(';');
                 csvContent += index < arrayToSave.length ? dataString + '\n' : dataString;
             });
 
@@ -139,11 +117,11 @@ appendCP = () => {
     div.innerText = "CSV";
     table.append(div);
 }
+export {
+    getActive,
+    compare,
+    color,
+    setPosition,
+    appendCP
 
-appendCP();
-
-//events listeners CONTEXT MENU
-document.getElementById('exTable').addEventListener("contextmenu", function (e) {
-    clearTr();
-    e.preventDefault();
-}, false);
+}
