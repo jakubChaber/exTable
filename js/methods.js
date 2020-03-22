@@ -1,7 +1,9 @@
 import {
     table,
     exTr,
-    tableOfActiveObjs
+    tableOfActiveObjs,
+    tableWidth,
+    tableStartPoint
 } from "./vars.js";
 var getActive = () => {
     return document.querySelectorAll('.exTr_ac').length;
@@ -20,7 +22,10 @@ var compare = (a, b) => {
     }
     return comparison;
 }
-
+var setCounter = () => {
+    let tmp = document.querySelector('#exTabCounter');
+    tmp.innerText = `${tableOfActiveObjs.length}/${exTr.length}`;
+}
 var color = (arg, key) => {
 
     arg.obj.classList.add('exTr_ac');
@@ -29,6 +34,7 @@ var color = (arg, key) => {
     tableOfActiveObjs.sort(compare);
     // arg.obj.style.top = `${ (getActive()*getHeight())-getHeight() }px`;
     setPosition();
+    setCounter();
 }
 var setPosition = () => {
     for (const key in tableOfActiveObjs) {
@@ -45,17 +51,22 @@ var setPosition = () => {
 var appendCP = () => {
     var table = document.getElementById('exTable');
     var div = document.createElement("div");
-    div.style.position = "absolute";
-    div.style.right = '-46px';
-    div.style.top = (table.clientHeight) / 2 + 'px';
-    div.style.width = '45px';
+    var button = document.createElement("button");
+    var header = document.createElement("header");
+    header.id = "exTabCounter";
+    div.style.position = "fixed";
+    div.style.display = "flex";
+    div.style.flexFlow = "column";
+    div.style.left = `${tableWidth+tableStartPoint}px`;
+    div.style.top = 0;
+    // div.style.width = '45px';
     div.style.padding = '5px';
     div.style.boxSizing = 'border-box';
-    div.style.cursor = 'pointer';
+    div.style.cursor = 'default';
     div.style.background = 'rgba(32,114,69,.6)';
     div.style.color = '#eee';
 
-    div.addEventListener('click',
+    button.addEventListener('click',
         function () {
 
             let str;
@@ -114,14 +125,19 @@ var appendCP = () => {
         });
 
     div.id = "controlPanel";
-    div.innerText = "CSV";
+    header.innerHTML = `${tableOfActiveObjs.length}/${exTr.length}`;
+    button.innerText = "CSV";
+
+    div.append(header);
+    div.append(button);
     table.append(div);
 }
+
 export {
     getActive,
     compare,
     color,
     setPosition,
-    appendCP
-
+    appendCP,
+    setCounter
 }

@@ -1,7 +1,8 @@
 import {
     table,
     exTr,
-    tableOfActiveObjs
+    tableOfActiveObjs,
+    tableWidth
 } from "./vars.js";
 import {
     getHeight
@@ -11,21 +12,15 @@ import {
     compare,
     color,
     setPosition,
-    appendCP
+    appendCP,
+    setCounter
 } from "./methods.js";
 import {
     clearTr
 } from "./clearTr.js";
-//variables
-// const table = document.querySelectorAll('#exTable');
-// const exTr = document.querySelectorAll('#exTable  tr');
+
 var TMPmin = 0;
-// var tableOfActiveObjs = [];
 table[0].style.position = "relative";
-
-//methods
-
-
 
 //add point 'n click
 for (const key in exTr) {

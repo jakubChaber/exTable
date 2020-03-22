@@ -3,6 +3,9 @@ import {
     exTr,
     tableOfActiveObjs
 } from "./vars.js";
+import {
+    setCounter
+} from "./methods.js";
 const clearTr = () => {
     for (const key in exTr) {
         if (exTr.hasOwnProperty(key)) {
@@ -11,9 +14,8 @@ const clearTr = () => {
             table.focus;
         }
     };
-    // console.log('tableOfActiveObjs', tableOfActiveObjs);
-    // tableOfActiveObjs = [];
     tableOfActiveObjs.length = 0;
+    setCounter();
 }
 export {
     clearTr
