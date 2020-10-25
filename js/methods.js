@@ -5,10 +5,13 @@ import {
     tableWidth,
     tableStartPoint
 } from "./vars.js";
+import {
+    setPosition
+} from "./setPosition.js"
+
 var getActive = () => {
     return document.querySelectorAll('.exTr_ac').length;
 }
-
 var compare = (a, b) => {
     // Use toUpperCase() to ignore character casing
     const rowIndexA = a.rowIndex;
@@ -36,17 +39,25 @@ var color = (arg, key) => {
     setPosition();
     setCounter();
 }
-var setPosition = () => {
-    for (const key in tableOfActiveObjs) {
-        if (tableOfActiveObjs.hasOwnProperty(key)) {
-            const element = tableOfActiveObjs[key];
-            // console.log('element.height l54', element.height);
-            // console.log('parseInt(key+1) l54', parseInt(key) + 1);
-            element.obj.style.top = `${((parseInt(key)+1)*element.height) - element.height }px`;
-            // console.log('element.obj.style.top', element.obj.style.top);
-        }
-    }
+var selectRowByMouse = (start, end) => {
+    let trStartIndex = start - 1;
+    let trEndIndex = end - 1;
 
+    exTr[trStartIndex].classList.add('exTr_ac');
+    console.log('trStartIndex', trStartIndex);
+    console.log('trEndIndex', trEndIndex);
+    console.log('tableOfActiveObjs', tableOfActiveObjs);
+    for (let i = trStartIndex; i <= trEndIndex; i++) {
+
+        let arg = {
+            rowIndex: i,
+            obj: exTr[i],
+            height: 49,
+
+        }
+        color(arg, i);
+        exTr[i].classList.add('exTr_ac');
+    }
 }
 var appendCP = () => {
     var table = document.getElementById('exTable');
@@ -139,5 +150,6 @@ export {
     color,
     setPosition,
     appendCP,
-    setCounter
+    setCounter,
+    selectRowByMouse
 }

@@ -35,3 +35,7 @@ td {
     transition: .1s ease-in;
     /* top: 0; */
 }
+
+.selected {
+    background: rgba(32, 114, 69, 0.288);
+}

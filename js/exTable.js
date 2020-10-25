@@ -13,19 +13,23 @@ import {
     color,
     setPosition,
     appendCP,
-    setCounter
+    setCounter,
+    selectRowByMouse
 } from "./methods.js";
 import {
     clearTr
 } from "./clearTr.js";
 
 var TMPmin = 0;
+var pointDown;
+var isClicked = 0;
 table[0].style.position = "relative";
 
 //add point 'n click
 for (const key in exTr) {
     if (exTr.hasOwnProperty(key)) {
         const element = exTr[key];
+
         exTr[key].addEventListener('click', ev => {
 
             if (!ev.ctrlKey) {
@@ -39,24 +43,7 @@ for (const key in exTr) {
 
                 color(tmpObj, key);
 
-                // } else if (ev.shiftKey) {
-                //     let i = TMPmin;
-                //     let TMPcurrent = key;
-                //     while (1) {
-                //         let tmpObj = {
-                //             rowIndex: exTr[key].rowIndex,
-                //             obj: exTr[key],
-                //             height: exTr[key].offsetHeight
-                //         }
-                //         color(tmpObj, i);
-                //         if (i >= TMPcurrent) {
-                //             i--;
-                //         } else if (i < TMPcurrent) {
-                //             i++;
-                //         } else {
-                //             break;
-                //         }
-                //     }
+
             } else {
                 let tmpObj = {
                     rowIndex: exTr[key].rowIndex,
@@ -67,6 +54,50 @@ for (const key in exTr) {
             }
 
             TMPmin = key;
+        });
+        exTr[key].addEventListener('mousedown', ev => {
+            // ev.target.
+            pointDown = ev.target.parentNode.rowIndex;
+            console.log('mousedown: ', ev.target.parentNode.rowIndex);
+            isClicked = 1;
+            ev.target.parentNode.classList.add('selected');
+
+        })
+        exTr.forEach(el => {
+            el.addEventListener('mouseover', (ev) => {
+                console.log('ev', ev);
+                if (isClicked == 1) {
+                    ev.target.parentNode.classList.add('selected');
+                }
+
+            })
+        })
+        exTr[key].addEventListener('mouseup', ev => {
+            let point_1 = pointDown;
+            let point_2 = ev.target.parentNode.rowIndex;
+
+
+            while (1) {
+                console.log('exTr[point_1]', exTr[point_1]);
+                console.log('exTr[point_1]', point_1 == point_2);
+                let tmpObj = {
+                    rowIndex: exTr[point_1 - 1].rowIndex,
+                    obj: exTr[point_1 - 1],
+                    height: exTr[point_1 - 1].offsetHeight
+                }
+                color(tmpObj, point_1 - 1);
+                if (point_1 - 1 == point_2 - 1) {
+                    break;
+                }
+                if (point_1 < point_2) point_1++;
+                if (point_1 > point_2) point_1--;
+
+            }
+            // console.log('mouseup: ', pointDown);
+            isClicked = 0;
+            exTr.forEach(el => {
+                el.classList.remove('selected');
+            });
         })
     }
 }
