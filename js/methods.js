@@ -59,23 +59,38 @@ var selectRowByMouse = (start, end) => {
         exTr[i].classList.add('exTr_ac');
     }
 }
+var selectAll = () => {
+    var thead                          = document.querySelector('#exTable > thead');
+        thead.style.position           = "relative";
+    var button                         = document.createElement("button");
+        button.innerText               = "";
+        button.style.position          = "absolute";
+        button.style.left              = "0";
+        button.style.top               = "0";
+        button.style.width             = "20px";
+        button.style.height            = "20px";
+        button.style.backgroundColor   = "red";
+        button.style.borderRadius      = "50%";
+        thead.append(button);
+}
 var appendCP = () => {
-    var table = document.getElementById('exTable');
-    var div = document.createElement("div");
-    var button = document.createElement("button");
-    var header = document.createElement("header");
-    header.id = "exTabCounter";
-    div.style.position = "fixed";
-    div.style.display = "flex";
-    div.style.flexFlow = "column";
-    div.style.left = `${tableWidth+tableStartPoint}px`;
-    div.style.top = 0;
-    // div.style.width = '45px';
-    div.style.padding = '5px';
-    div.style.boxSizing = 'border-box';
-    div.style.cursor = 'default';
-    div.style.background = 'rgba(32,114,69,.6)';
-    div.style.color = '#eee';
+
+    var table                = document.getElementById('exTable');
+    var div                  = document.createElement("div");
+    var button               = document.createElement("button");
+    var header               = document.createElement("header");
+
+        header.id            = "exTabCounter";
+        div.style.position   = "fixed";
+        div.style.display    = "flex";
+        div.style.flexFlow   = "column";
+        div.style.left       = `${tableWidth+tableStartPoint}px`;
+        div.style.top        = 0;
+        div.style.padding    = '5px';
+        div.style.boxSizing  = 'border-box';
+        div.style.cursor     = 'default';
+        div.style.background = 'rgba(32,114,69,.6)';
+        div.style.color      = '#eee';
 
     button.addEventListener('click',
         function () {
@@ -142,6 +157,7 @@ var appendCP = () => {
     div.append(header);
     div.append(button);
     table.append(div);
+    // selectAll();
 }
 
 export {

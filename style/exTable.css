@@ -36,6 +36,11 @@ td {
     /* top: 0; */
 }
 
+/* tr {
+    border: 4px solid transparent;
+} */
+
 .selected {
     background: rgba(32, 114, 69, 0.288);
+    /* border: 4px solid rgba(32, 114, 69, 1) !important; */
 }
