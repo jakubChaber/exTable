@@ -1,29 +1,12 @@
-import {
-    table,
-    exTr,
-    tableOfActiveObjs,
-    tableWidth
-} from "./vars.js";
-import {
-    getHeight
-} from "./getHeight.js";
-import {
-    getActive,
-    compare,
-    color,
-    setPosition,
-    appendCP,
-    setCounter,
-    selectRowByMouse
-} from "./methods.js";
-import {
-    clearTr
-} from "./clearTr.js";
+import { table, exTr, tableOfActiveObjs, tableWidth                                     } from "./vars.js";
+import { getHeight                                                                      } from "./getHeight.js";
+import { getActive, compare, color, setPosition, appendCP, setCounter, selectRowByMouse } from "./methods.js";
+import { clearTr                                                                        } from "./clearTr.js";
 
-var TMPmin = 0;
-var pointDown;
-var isClicked = 0;
-table[0].style.position = "relative";
+var TMPmin                  = 0         ;
+var pointDown                           ;
+var isClicked               = 0         ;
+    table[0].style.position = "relative";
 
 //add point 'n click
 for (const key in exTr) {
@@ -36,9 +19,9 @@ for (const key in exTr) {
                 clearTr();
 
                 let tmpObj = {
-                    rowIndex: exTr[key].rowIndex,
-                    obj: exTr[key],
-                    height: exTr[key].offsetHeight
+                    rowIndex : exTr[key].rowIndex,
+                    obj      : exTr[key],
+                    height   : exTr[key].offsetHeight
                 }
 
                 color(tmpObj, key);
@@ -46,9 +29,9 @@ for (const key in exTr) {
 
             } else {
                 let tmpObj = {
-                    rowIndex: exTr[key].rowIndex,
-                    obj: exTr[key],
-                    height: exTr[key].offsetHeight
+                    rowIndex : exTr[key].rowIndex,
+                    obj      : exTr[key],
+                    height   : exTr[key].offsetHeight
                 }
                 color(tmpObj, key);
             }
@@ -58,14 +41,12 @@ for (const key in exTr) {
         exTr[key].addEventListener('mousedown', ev => {
             // ev.target.
             pointDown = ev.target.parentNode.rowIndex;
-            console.log('mousedown: ', ev.target.parentNode.rowIndex);
             isClicked = 1;
             ev.target.parentNode.classList.add('selected');
 
         })
         exTr.forEach(el => {
             el.addEventListener('mouseover', (ev) => {
-                console.log('ev', ev);
                 if (isClicked == 1) {
                     ev.target.parentNode.classList.add('selected');
                 }
@@ -78,12 +59,11 @@ for (const key in exTr) {
 
 
             while (1) {
-                console.log('exTr[point_1]', exTr[point_1]);
-                console.log('exTr[point_1]', point_1 == point_2);
+
                 let tmpObj = {
                     rowIndex: exTr[point_1 - 1].rowIndex,
-                    obj: exTr[point_1 - 1],
-                    height: exTr[point_1 - 1].offsetHeight
+                    obj     : exTr[point_1 - 1],
+                    height  : exTr[point_1 - 1].offsetHeight
                 }
                 color(tmpObj, point_1 - 1);
                 if (point_1 - 1 == point_2 - 1) {
@@ -93,7 +73,6 @@ for (const key in exTr) {
                 if (point_1 > point_2) point_1--;
 
             }
-            // console.log('mouseup: ', pointDown);
             isClicked = 0;
             exTr.forEach(el => {
                 el.classList.remove('selected');

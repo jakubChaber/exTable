@@ -1,17 +1,11 @@
-import {
-    table,
-    exTr,
-    tableOfActiveObjs
-} from "./vars.js";
-import {
-    setCounter
-} from "./methods.js";
+import { table, exTr, tableOfActiveObjs } from "./vars.js";
+import { setCounter } from "./methods.js";
 const clearTr = () => {
     for (const key in exTr) {
         if (exTr.hasOwnProperty(key)) {
             const element = exTr[key];
-            element.classList.remove('exTr_ac');
-            table.focus;
+                  element.classList.remove('exTr_ac');
+                  table.focus;
         }
     };
     tableOfActiveObjs.length = 0;

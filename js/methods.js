@@ -1,13 +1,5 @@
-import {
-    table,
-    exTr,
-    tableOfActiveObjs,
-    tableWidth,
-    tableStartPoint
-} from "./vars.js";
-import {
-    setPosition
-} from "./setPosition.js"
+import { table, exTr, tableOfActiveObjs, tableWidth, tableStartPoint } from "./vars.js";
+import { setPosition                                                 } from "./setPosition.js"
 
 var getActive = () => {
     return document.querySelectorAll('.exTr_ac').length;
@@ -26,8 +18,8 @@ var compare = (a, b) => {
     return comparison;
 }
 var setCounter = () => {
-    let tmp = document.querySelector('#exTabCounter');
-    tmp.innerText = `${tableOfActiveObjs.length}/${exTr.length}`;
+    let tmp           = document.querySelector('#exTabCounter');
+        tmp.innerText = `${tableOfActiveObjs.length}/${exTr.length}`;
 }
 var color = (arg, key) => {
 
@@ -41,7 +33,7 @@ var color = (arg, key) => {
 }
 var selectRowByMouse = (start, end) => {
     let trStartIndex = start - 1;
-    let trEndIndex = end - 1;
+    let trEndIndex   = end - 1;
 
     exTr[trStartIndex].classList.add('exTr_ac');
     console.log('trStartIndex', trStartIndex);
@@ -50,11 +42,10 @@ var selectRowByMouse = (start, end) => {
     for (let i = trStartIndex; i <= trEndIndex; i++) {
 
         let arg = {
-            rowIndex: i,
-            obj: exTr[i],
-            height: 49,
-
-        }
+                    rowIndex: i,
+                    obj     : exTr[i],
+                    height  : 49,
+                }
         color(arg, i);
         exTr[i].classList.add('exTr_ac');
     }
@@ -97,37 +88,34 @@ var appendCP = () => {
 
             let str;
             var arrayToSave = new Array;
-            let TMP_tr = document.getElementsByClassName('exTr_ac');
+            let TMP_tr      = document.getElementsByClassName('exTr_ac');
 
             for (var key1 in TMP_tr) {
                 if (TMP_tr.hasOwnProperty(key1)) {
                     arrayToSave[key1] = [];
-                    const trki = TMP_tr[key1];
+                    const trki        = TMP_tr[key1];
+                    const tedeki      = trki.children;
 
-                    const tedeki = trki.children;
                     for (const key2 in tedeki) {
-
                         const element = tedeki[key2].innerHTML;
-                        // console.log(`trki[key].`, tedeki[key]);
-                        if (typeof element != 'undefined') {
-                            // console.log('key1: ',arrayToSave);
-                            arrayToSave[key1].push(`"` + element + `"`);
 
+                        if (typeof element != 'undefined') {
+                            arrayToSave[key1].push(`"` + element + `"`);
                         }
                     }
                 }
             }
             //adding filename (from attribute of the table)
-            var filename = table.getAttribute('data-fTitle') + '.csv';
-
+            var filename   = table.getAttribute('data-fTitle') + '.csv';
             var csvContent = '';
+
             arrayToSave.forEach(function (infoArray, index) {
                 let dataString = infoArray.join(';');
-                csvContent += index < arrayToSave.length ? dataString + '\n' : dataString;
+                    csvContent += index < arrayToSave.length ? dataString + '\n' : dataString;
             });
 
             var download = function (content, fileName, mimeType) {
-                var a = document.createElement('a');
+                var a    = document.createElement('a');
                 mimeType = mimeType || 'application/octet-stream';
 
                 if (navigator.msSaveBlob) { // IE10
@@ -150,7 +138,7 @@ var appendCP = () => {
             download(csvContent, filename, 'text/csv;charset:utf-8');
         });
 
-    div.id = "controlPanel";
+    div.id           = "controlPanel";
     header.innerHTML = `${tableOfActiveObjs.length}/${exTr.length}`;
     button.innerText = "CSV";
 
@@ -161,11 +149,11 @@ var appendCP = () => {
 }
 
 export {
-    getActive,
-    compare,
-    color,
+    getActive  ,
+    compare    ,
+    color      ,
     setPosition,
-    appendCP,
-    setCounter,
+    appendCP   ,
+    setCounter ,
     selectRowByMouse
 }
