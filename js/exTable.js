@@ -12,7 +12,7 @@ var ths                     = tableHeaderTH ;
 ths.forEach(el=>{
     el.style.position            = "sticky";
     el.style.top                 = "0";
-    el.style.backgroundColor     = "#fff";
+    el.style.backgroundColor     = "#ffffffcc";
 })
 //add point 'n click
 for (const key in exTr) {
