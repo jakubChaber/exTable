@@ -19,7 +19,7 @@ var compare = (a, b) => {
 }
 var setCounter = () => {
     let tmp           = document.querySelector('#exTabCounter');
-        tmp.innerText = `${tableOfActiveObjs.length}/${exTr.length}`;
+        tmp.innerText = `${ Math.floor((tableOfActiveObjs.length / exTr.length)*100)  }%`;
 }
 var color = (arg, key) => {
 
@@ -139,7 +139,7 @@ var appendCP = () => {
         });
 
     div.id           = "controlPanel";
-    header.innerHTML = `${tableOfActiveObjs.length}/${exTr.length}`;
+    header.innerHTML = `0%`;
     button.innerText = "CSV";
 
     div.append(header);

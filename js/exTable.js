@@ -15,31 +15,18 @@ for (const key in exTr) {
 
         exTr[key].addEventListener('click', ev => {
 
-            if (!ev.ctrlKey) {
-                clearTr();
-
                 let tmpObj = {
                     rowIndex : exTr[key].rowIndex,
                     obj      : exTr[key],
                     height   : exTr[key].offsetHeight
                 }
-
+                
                 color(tmpObj, key);
-
-
-            } else {
-                let tmpObj = {
-                    rowIndex : exTr[key].rowIndex,
-                    obj      : exTr[key],
-                    height   : exTr[key].offsetHeight
-                }
-                color(tmpObj, key);
-            }
 
             TMPmin = key;
         });
         exTr[key].addEventListener('mousedown', ev => {
-            // ev.target.
+
             pointDown = ev.target.parentNode.rowIndex;
             isClicked = 1;
             ev.target.parentNode.classList.add('selected');

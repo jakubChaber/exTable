@@ -31,7 +31,7 @@ td {
 .exTr_ac {
     background-color: #79aa8f;
     color: #eee;
-    position: sticky;
+    /* position: sticky; */
     transition: .1s ease-in;
     /* top: 0; */
 }
