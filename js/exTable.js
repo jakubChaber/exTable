@@ -1,13 +1,19 @@
-import { table, exTr, tableOfActiveObjs, tableWidth                                     } from "./vars.js";
+import { table, exTr, tableOfActiveObjs, tableWidth, tableHeaderTH                                     } from "./vars.js";
 import { getHeight                                                                      } from "./getHeight.js";
 import { getActive, compare, color, setPosition, appendCP, setCounter, selectRowByMouse } from "./methods.js";
 import { clearTr                                                                        } from "./clearTr.js";
 
-var TMPmin                  = 0         ;
-var pointDown                           ;
-var isClicked               = 0         ;
-    table[0].style.position = "relative";
+var TMPmin                  = 0             ;
+var pointDown                               ;
+var isClicked               = 0             ;
+    table[0].style.position = "relative"    ;
+var ths                     = tableHeaderTH ;
 
+ths.forEach(el=>{
+    el.style.position            = "sticky";
+    el.style.top                 = "0";
+    el.style.backgroundColor     = "#fff";
+})
 //add point 'n click
 for (const key in exTr) {
     if (exTr.hasOwnProperty(key)) {
