@@ -14,7 +14,7 @@ var compare = (a, b) => {
         comparison = 1;
     } else if (rowIndexA < rowIndexB) {
         comparison = -1;
-    }
+    } 
     return comparison;
 }
 var setCounter = () => {
@@ -22,12 +22,21 @@ var setCounter = () => {
         tmp.innerText = `${ Math.floor((tableOfActiveObjs.length / exTr.length)*100)  }%`;
 }
 var color = (arg, key) => {
+let tmpFlag = true;
 
+
+   tableOfActiveObjs.forEach((el, key)=>{
+       console.log('el.rowIndex !== arg.rowIndex', el.rowIndex !== arg.rowIndex);
+       if(el.rowIndex == arg.rowIndex) tmpFlag = false;
+   });
+
+if(tmpFlag){
     arg.obj.classList.add('exTr_ac');
     tableOfActiveObjs.push(arg);
-
+}
     tableOfActiveObjs.sort(compare);
     // arg.obj.style.top = `${ (getActive()*getHeight())-getHeight() }px`;
+    // console.log('tableOfActiveObjs', tableOfActiveObjs);
     setPosition();
     setCounter();
 }
@@ -40,7 +49,6 @@ var selectRowByMouse = (start, end) => {
     console.log('trEndIndex', trEndIndex);
     console.log('tableOfActiveObjs', tableOfActiveObjs);
     for (let i = trStartIndex; i <= trEndIndex; i++) {
-
         let arg = {
                     rowIndex: i,
                     obj     : exTr[i],

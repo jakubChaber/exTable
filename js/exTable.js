@@ -26,7 +26,7 @@ for (const key in exTr) {
                     obj      : exTr[key],
                     height   : exTr[key].offsetHeight
                 }
-                
+                console.log('29-key ', key);
                 color(tmpObj, key);
 
             TMPmin = key;
@@ -58,6 +58,18 @@ for (const key in exTr) {
                     obj     : exTr[point_1 - 1],
                     height  : exTr[point_1 - 1].offsetHeight
                 }
+                console.log(61,' - ', tableOfActiveObjs);
+
+                tableOfActiveObjs.forEach((el, key)=>{
+                    console.log('el',el, ' tmpObj ', tmpObj);
+                    // console.log('el.rowIndex == arg.rowIndex', el.rowIndex == tmpObj.rowIndex);
+                    if(el.rowIndex == tmpObj.rowIndex){
+
+                    }
+               
+                });
+
+
                 color(tmpObj, point_1 - 1);
                 if (point_1 - 1 == point_2 - 1) {
                     break;
