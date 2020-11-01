@@ -1,6 +1,8 @@
 import { table, exTr, tableOfActiveObjs, tableWidth, tableStartPoint } from "./vars.js";
 import { setPosition                                                 } from "./setPosition.js"
 
+var _percent =0;
+
 var getActive = () => {
     return document.querySelectorAll('.exTr_ac').length;
 }
@@ -18,25 +20,29 @@ var compare = (a, b) => {
     return comparison;
 }
 var setCounter = () => {
+    let content       = document.querySelector('#exTabContent');
+        content.innerText   = `${tableOfActiveObjs.length} /${exTr.length}`;
+        console.log(content);
+        _percent = Math.floor((tableOfActiveObjs.length / exTr.length)*100);
     let tmp           = document.querySelector('#exTabCounter');
-        tmp.innerText = `${ Math.floor((tableOfActiveObjs.length / exTr.length)*100)  }%`;
+        tmp.innerText = `${ _percent  }%`;
+
+       
 }
 var color = (arg, key) => {
-let tmpFlag = true;
+    let tmpFlag = true;
 
 
    tableOfActiveObjs.forEach((el, key)=>{
-       console.log('el.rowIndex !== arg.rowIndex', el.rowIndex !== arg.rowIndex);
        if(el.rowIndex == arg.rowIndex) tmpFlag = false;
    });
 
-if(tmpFlag){
-    arg.obj.classList.add('exTr_ac');
-    tableOfActiveObjs.push(arg);
-}
+    if(tmpFlag){
+        arg.obj.classList.add('exTr_ac');
+        tableOfActiveObjs.push(arg);
+    }
     tableOfActiveObjs.sort(compare);
-    // arg.obj.style.top = `${ (getActive()*getHeight())-getHeight() }px`;
-    // console.log('tableOfActiveObjs', tableOfActiveObjs);
+
     setPosition();
     setCounter();
 }
@@ -45,9 +51,7 @@ var selectRowByMouse = (start, end) => {
     let trEndIndex   = end - 1;
 
     exTr[trStartIndex].classList.add('exTr_ac');
-    console.log('trStartIndex', trStartIndex);
-    console.log('trEndIndex', trEndIndex);
-    console.log('tableOfActiveObjs', tableOfActiveObjs);
+
     for (let i = trStartIndex; i <= trEndIndex; i++) {
         let arg = {
                     rowIndex: i,
@@ -78,11 +82,13 @@ var appendCP = () => {
     var div                  = document.createElement("div");
     var button               = document.createElement("button");
     var header               = document.createElement("header");
+    var content              = document.createElement("div");
 
         header.id            = "exTabCounter";
+        content.id            = "exTabContent";
         div.style.position   = "fixed";
         div.style.display    = "flex";
-        div.style.flexFlow   = "column";
+        div.style.flexDirection   = "column";
         div.style.left       = `${tableWidth+tableStartPoint}px`;
         div.style.top        = 0;
         div.style.padding    = '5px';
@@ -90,6 +96,7 @@ var appendCP = () => {
         div.style.cursor     = 'default';
         div.style.background = 'rgba(32,114,69,.6)';
         div.style.color      = '#eee';
+        div.style.height      = 'auto';
 
     button.addEventListener('click',
         function () {
@@ -147,10 +154,12 @@ var appendCP = () => {
         });
 
     div.id           = "controlPanel";
+    content.innerHTML = `0/${exTr.length}`;
     header.innerHTML = `0%`;
     button.innerText = "CSV";
-
+    div.append(content);
     div.append(header);
+
     div.append(button);
     table.append(div);
     // selectAll();
