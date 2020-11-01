@@ -1,7 +1,8 @@
-import { table, exTr, tableOfActiveObjs, tableWidth, tableHeaderTH                                     } from "./vars.js";
+import { table, exTr, tableOfActiveObjs, tableWidth, tableHeaderTH                      } from "./vars.js";
 import { getHeight                                                                      } from "./getHeight.js";
-import { getActive, compare, color, setPosition, appendCP, setCounter, selectRowByMouse } from "./methods.js";
+import { getActive, compare, color, setPosition, setCounter, selectRowByMouse           } from "./methods.js";
 import { clearTr                                                                        } from "./clearTr.js";
+import { appendCP                                                                       } from "./appendCP.js";
 (function(){
     "use strict";
     var TMPmin                  = 0             ;
@@ -94,5 +95,5 @@ import { clearTr                                                                
         clearTr();
         e.preventDefault();
     }, false);
-    
+
 })();
