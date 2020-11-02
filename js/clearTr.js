@@ -5,6 +5,7 @@ const clearTr = () => {
         if (exTr.hasOwnProperty(key)) {
             const element = exTr[key];
                   element.classList.remove('exTr_ac');
+                  element.classList.remove('exTr_sticky');
                   table.focus;
         }
     };

@@ -44,6 +44,13 @@ td {
     background: rgba(32, 114, 69, 0.288);
     /* border: 4px solid rgba(32, 114, 69, 1) !important; */
 }
-.exTr_sticky{
-    position:sticky;
-}
+
+.exTr_sticky td, .exTr_sticky th {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+    position: sticky;
+    z-index:99999999999999999!important;
+    background:rgba(32, 114, 69, 1);
+ }

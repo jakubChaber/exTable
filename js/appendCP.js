@@ -2,7 +2,7 @@ import { table, exTr, tableOfActiveObjs, tableWidth, tableStartPoint          } 
 import { color} from "./methods.js";
 import { setPosition                                                          } from "./setPosition.js"
 var appendCP = () => {
-
+    "use strict";
     var table                = document.getElementById('exTable');
     var div                  = document.createElement("div");
     var button               = document.createElement("button");
@@ -40,9 +40,15 @@ var appendCP = () => {
 
      });
     }
+    function removeOne(){
+        this.classList.remove('exTr_sticky');
+    }
     var getSticky=()=>{
-        exTr.forEach(el => {
-            el.classList.toggle("exTr_sticky");
+        console.log('tableOfActiveObjs', tableOfActiveObjs);
+        tableOfActiveObjs.forEach(el => {
+            el.obj.classList.add('exTr_sticky');
+            console.log(el.obj);
+            el.obj.addEventListener('click',removeOne);
          });
     }
     var cpInit=()=>{
