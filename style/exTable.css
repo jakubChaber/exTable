@@ -44,3 +44,6 @@ td {
     background: rgba(32, 114, 69, 0.288);
     /* border: 4px solid rgba(32, 114, 69, 1) !important; */
 }
+.exTr_sticky{
+    position:sticky;
+}
