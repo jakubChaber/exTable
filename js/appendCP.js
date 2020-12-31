@@ -8,9 +8,13 @@ var appendCP = () => {
 
     var button               = document.createElement("button");
     var stickyButton         = document.createElement("button");
+    var stickyButtonImg      = document.createElement("img");
+        stickyButtonImg.src="icon/sticky.svg";
     var header               = document.createElement("header");
     var content              = document.createElement("div");
     var selectAllBtn         = document.createElement("button");
+    var selectAllImg         = document.createElement("img");
+        selectAllImg.src="/icon/ok.svg";
 
 
 
@@ -20,17 +24,17 @@ var appendCP = () => {
         selectAllBtn.id           = "sAllBtn";
         selectAllBtn.classList.add("scene")  ;
         
-        selectAllBtn.innerText    = "select all";
-        stickyButton.innerText    = "get sticky";
+        // selectAllBtn.innerText    = "select all";
+        // stickyButton.innerText    = "get sticky";
         div.style.position        = "fixed";
         div.style.display         = "flex";
         div.style.flexDirection   = "column";
         div.style.left            = `${tableWidth+tableStartPoint}px`;
         div.style.top             = 0;
-        div.style.padding         = '5px';
+        div.style.padding         = '0px';
         div.style.boxSizing       = 'border-box';
         div.style.cursor          = 'default';
-        div.style.background      = '#222831';
+        // div.style.background      = '#222831';
         div.style.color           = '#eee';
         div.style.height          = 'auto';
         div.style.justifyContent  = 'flex-start';
@@ -74,7 +78,9 @@ var appendCP = () => {
         div.append(header);
         
         div.append(selectAllBtn);
+        selectAllBtn.append(selectAllImg);
         div.append(stickyButton);
+        stickyButton.append(stickyButtonImg);
         div.append(button);
 
         table.append(div);

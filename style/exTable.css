@@ -6,9 +6,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #eee;
+    /* background-color: #eee; */
     /* background-color: rgba(32, 114, 69, .6); */
     border-radius:5px;
+    overflow:hidden;
 }
 
 #exTable {
@@ -67,14 +68,36 @@ td {
     padding:0;
     border:none;
     font-size:.8rem;
-    margin-top:.2rem;
+    /* margin-top:.2rem; */
 }
 
 .ex_csvButton{
     text-align:center!important;
-    border-radius:5px;
+    /* border-radius:5px; */
 }
 
 
+button img{
+    width:20px;
+    height:auto;
 
- 
+}
+button{
+    text-align:center!important;
+    /* border-radius:5px; */
+}
+#controlPanel div,  #controlPanel header{
+    padding:0 5px;
+    font-size:.8rem;
+    background:#222831;
+}
+
+#controlPanel > * {
+    width:50px!important;
+    height:50px;
+    border-radius:50%;
+    /* background:red; */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
