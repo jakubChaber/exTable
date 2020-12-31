@@ -100,4 +100,15 @@ button{
     display:flex;
     align-items:center;
     justify-content:center;
+    transform:scale(.9);
+    transition:.15s ease-in;
+}
+
+#controlPanel:hover > button {
+    transform:scale(.8);
+    opacity:.5;
+}
+#controlPanel > button:hover {
+    transform:scale(1);
+    opacity:1;
 }
