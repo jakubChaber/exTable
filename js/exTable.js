@@ -64,9 +64,7 @@ import { appendCP                                                               
     
                     tableOfActiveObjs.forEach((el, key)=>{
                         console.log('el',el, ' tmpObj ', tmpObj);
-                        // console.log('el.rowIndex == arg.rowIndex', el.rowIndex == tmpObj.rowIndex);
-    
-                   
+
                     });
     
     
@@ -86,7 +84,6 @@ import { appendCP                                                               
         }
     }
     // generating CP and click-it function
-    
     
     appendCP();
     

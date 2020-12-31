@@ -5,15 +5,21 @@ var appendCP = () => {
     "use strict";
     var table                = document.getElementById('exTable');
     var div                  = document.createElement("div");
+
     var button               = document.createElement("button");
     var stickyButton         = document.createElement("button");
     var header               = document.createElement("header");
     var content              = document.createElement("div");
     var selectAllBtn         = document.createElement("button");
 
+
+
         header.id                 = "exTabCounter";
         content.id                = "exTabContent";
-        selectAllBtn.id           = "sAllBtn"
+
+        selectAllBtn.id           = "sAllBtn";
+        selectAllBtn.classList.add("scene")  ;
+        
         selectAllBtn.innerText    = "select all";
         stickyButton.innerText    = "get sticky";
         div.style.position        = "fixed";
@@ -24,9 +30,15 @@ var appendCP = () => {
         div.style.padding         = '5px';
         div.style.boxSizing       = 'border-box';
         div.style.cursor          = 'default';
-        div.style.background      = 'rgba(32,114,69,.6)';
+        div.style.background      = '#222831';
         div.style.color           = '#eee';
         div.style.height          = 'auto';
+        div.style.justifyContent  = 'flex-start';
+
+        button.classList.add('ex_csvButton');
+        button.style.backgroundColor="#f05454";
+        button.style.color="#eee";
+
 
     var selectAllTr = () =>{
      exTr.forEach(el => {
@@ -55,13 +67,16 @@ var appendCP = () => {
         div.id            = "controlPanel";
         content.innerHTML = `0/${exTr.length}`;
         header.innerHTML  = `0%`;
-        button.innerText  = "CSV";
+        button.innerHTML  = `CSV`;
+
     
         div.append(content);
         div.append(header);
-        div.append(button);
+        
         div.append(selectAllBtn);
         div.append(stickyButton);
+        div.append(button);
+
         table.append(div);
     }
     var download =  (content, fileName, mimeType) => {

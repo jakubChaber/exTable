@@ -6,7 +6,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(32, 114, 69, .6);
+    background-color: #eee;
+    /* background-color: rgba(32, 114, 69, .6); */
+    border-radius:5px;
 }
 
 #exTable {
@@ -29,7 +31,7 @@ td {
 }
 
 .exTr_ac {
-    background-color: #79aa8f;
+    background-color: #30475e8a;
     color: #eee;
     /* position: sticky; */
     transition: .1s ease-in;
@@ -41,7 +43,7 @@ td {
 } */
 
 .selected {
-    background: rgba(32, 114, 69, 0.288);
+    background: #dddddd;
     /* border: 4px solid rgba(32, 114, 69, 1) !important; */
 }
 
@@ -52,5 +54,27 @@ td {
     position: -o-sticky;
     position: sticky;
     z-index:99999999999999999!important;
-    background:rgba(32, 114, 69, 1);
+    background:#30475e;
  }
+
+ /* cp */
+ #controlPanel button, #exTabContent, #exTabCounter {
+    width: 100%!important;
+}
+
+#controlPanel button{
+    text-align:left;
+    padding:0;
+    border:none;
+    font-size:.8rem;
+    margin-top:.2rem;
+}
+
+.ex_csvButton{
+    text-align:center!important;
+    border-radius:5px;
+}
+
+
+
+ 

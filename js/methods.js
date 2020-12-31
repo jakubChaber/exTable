@@ -7,7 +7,7 @@ var getActive = () => {
     return document.querySelectorAll('.exTr_ac').length;
 }
 var compare = (a, b) => {
-    // Use toUpperCase() to ignore character casing
+
     const rowIndexA = a.rowIndex;
     const rowIndexB = b.rowIndex;
 
