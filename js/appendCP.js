@@ -14,7 +14,7 @@ var appendCP = () => {
     var content              = document.createElement("div");
     var selectAllBtn         = document.createElement("button");
     var selectAllImg         = document.createElement("img");
-        selectAllImg.src="/icon/ok.svg";
+        selectAllImg.src="icon/ok.svg";
 
 
 
